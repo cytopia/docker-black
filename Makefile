@@ -2,7 +2,7 @@ ifneq (,)
 .error This Makefile requires GNU Make.
 endif
 
-.PHONY: build rebuild test _test_version _test_run tag pull login push enter
+.PHONY: build rebuild lint test _test_version _test_run tag pull login push enter
 
 CURRENT_DIR = $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 
