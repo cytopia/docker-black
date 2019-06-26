@@ -2,8 +2,8 @@
 
 [![Build Status](https://travis-ci.com/cytopia/docker-black.svg?branch=master)](https://travis-ci.com/cytopia/docker-black)
 [![Tag](https://img.shields.io/github/tag/cytopia/docker-black.svg)](https://github.com/cytopia/docker-black/releases)
-[![](https://images.microbadger.com/badges/version/cytopia/black:latest.svg)](https://microbadger.com/images/cytopia/black:latest "black")
-[![](https://images.microbadger.com/badges/image/cytopia/black:latest.svg)](https://microbadger.com/images/cytopia/black:latest "black")
+[![](https://images.microbadger.com/badges/version/cytopia/black:latest.svg?&kill_cache=1)](https://microbadger.com/images/cytopia/black:latest "black")
+[![](https://images.microbadger.com/badges/image/cytopia/black:latest.svg?&kill_cache=1)](https://microbadger.com/images/cytopia/black:latest "black")
 [![](https://img.shields.io/badge/github-cytopia%2Fdocker--black-red.svg)](https://github.com/cytopia/docker-black "github.com/cytopia/docker-black")
 [![License](https://img.shields.io/badge/license-MIT-%233DA639.svg)](https://opensource.org/licenses/MIT)
 
@@ -33,7 +33,7 @@
 
 View **[Dockerfile](https://github.com/cytopia/docker-black/blob/master/Dockerfile)** on GitHub.
 
-[![Docker hub](http://dockeri.co/image/cytopia/black?kill_cache=1)](https://hub.docker.com/r/cytopia/black)
+[![Docker hub](http://dockeri.co/image/cytopia/black?&kill_cache=1)](https://hub.docker.com/r/cytopia/black)
 
 Tiny Alpine-based multistage-build dockerized version of [Black](https://github.com/python/black)<sup>[1]</sup>.
 The image is built nightly against multiple stable versions and pushed to Dockerhub.
