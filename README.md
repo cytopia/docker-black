@@ -23,12 +23,14 @@
 > [jsonlint][jlint-git-lnk] **•**
 > [phpcbf][pcbf-git-lnk] **•**
 > [phpcs][pcs-git-lnk] **•**
+> [phplint][plint-git-lnk] **•**
 > [php-cs-fixer][pcsf-git-lnk] **•**
 > [pycodestyle][pycs-git-lnk] **•**
 > [pylint][pylint-git-lnk] **•**
 > [terraform-docs][tfdocs-git-lnk] **•**
 > [terragrunt][tg-git-lnk] **•**
 > [terragrunt-fmt][tgfmt-git-lnk] **•**
+> [yamlfmt][yfmt-git-lnk] **•**
 > [yamllint][ylint-git-lnk]
 
 > #### All [#awesome-ci](https://github.com/topics/awesome-ci) Makefiles
@@ -80,17 +82,17 @@ linter below for reproducible local or remote CI tests:
 |--------|-----------|------|-------------|
 | [awesome-ci][aci-git-lnk]        | [![aci-hub-img]][aci-hub-lnk]         | Basic      | Tools for git, file and static source code analysis |
 | [file-lint][flint-git-lnk]       | [![flint-hub-img]][flint-hub-lnk]     | Basic      | Baisc source code analysis |
-| [jsonlint][jlint-git-lnk]        | [![jlint-hub-img]][jlint-hub-lnk]     | Basic      | Lint JSON files **<sup>[1]</sup>** |
-| [yamllint][ylint-git-lnk]        | [![ylint-hub-img]][ylint-hub-lnk]     | Basic      | Lint Yaml files |
 | [ansible][ansible-git-lnk]       | [![ansible-hub-img]][ansible-hub-lnk] | Ansible    | Multiple versions and flavours of Ansible |
 | [ansible-lint][alint-git-lnk]    | [![alint-hub-img]][alint-hub-lnk]     | Ansible    | Lint Ansible |
 | [gofmt][gfmt-git-lnk]            | [![gfmt-hub-img]][gfmt-hub-lnk]       | Go         | Format Go source code **<sup>[1]</sup>** |
 | [goimports][gimp-git-lnk]        | [![gimp-hub-img]][gimp-hub-lnk]       | Go         | Format Go source code **<sup>[1]</sup>** |
 | [golint][glint-git-lnk]          | [![glint-hub-img]][glint-hub-lnk]     | Go         | Lint Go code |
 | [eslint][elint-git-lnk]          | [![elint-hub-img]][elint-hub-lnk]     | Javascript | Lint Javascript code |
+| [jsonlint][jlint-git-lnk]        | [![jlint-hub-img]][jlint-hub-lnk]     | JSON       | Lint JSON files **<sup>[1]</sup>** |
 | [checkmake][cm-git-lnk]          | [![cm-hub-img]][cm-hub-lnk]           | Make       | Lint Makefiles |
 | [phpcbf][pcbf-git-lnk]           | [![pcbf-hub-img]][pcbf-hub-lnk]       | PHP        | PHP Code Beautifier and Fixer |
 | [phpcs][pcs-git-lnk]             | [![pcs-hub-img]][pcs-hub-lnk]         | PHP        | PHP Code Sniffer |
+| [phplint][plint-git-lnk]         | [![plint-hub-img]][plint-hub-lnk]     | PHP        | PHP Code Linter **<sup>[1]</sup>** |
 | [php-cs-fixer][pcsf-git-lnk]     | [![pcsf-hub-img]][pcsf-hub-lnk]       | PHP        | PHP Coding Standards Fixer |
 | [black][black-git-lnk]           | [![black-hub-img]][black-hub-lnk]     | Python     | The uncompromising Python code formatter |
 | [pycodestyle][pycs-git-lnk]      | [![pycs-hub-img]][pycs-hub-lnk]       | Python     | Python style guide checker |
@@ -98,6 +100,8 @@ linter below for reproducible local or remote CI tests:
 | [terraform-docs][tfdocs-git-lnk] | [![tfdocs-hub-img]][tfdocs-hub-lnk]   | Terraform  | Terraform doc generator (TF 0.12 ready) **<sup>[1]</sup>** |
 | [terragrunt][tg-git-lnk]         | [![tg-hub-img]][tg-hub-lnk]           | Terraform  | Terragrunt and Terraform |
 | [terragrunt-fmt][tgfmt-git-lnk]  | [![tgfmt-hub-img]][tgfmt-hub-lnk]     | Terraform  | `terraform fmt` for Terragrunt files **<sup>[1]</sup>** |
+| [yamlfmt][yfmt-git-lnk]          | [![yfmt-hub-img]][yfmt-hub-lnk]       | Yaml       | Format Yaml files **<sup>[1]</sup>** |
+| [yamllint][ylint-git-lnk]        | [![ylint-hub-img]][ylint-hub-lnk]     | Yaml       | Lint Yaml files |
 
 > **<sup>[1]</sup>** Uses a shell wrapper to add **enhanced functionality** not available by original project.
 
@@ -112,10 +116,6 @@ linter below for reproducible local or remote CI tests:
 [jlint-git-lnk]: https://github.com/cytopia/docker-jsonlint
 [jlint-hub-img]: https://img.shields.io/docker/pulls/cytopia/jsonlint.svg
 [jlint-hub-lnk]: https://hub.docker.com/r/cytopia/jsonlint
-
-[ylint-git-lnk]: https://github.com/cytopia/docker-yamllint
-[ylint-hub-img]: https://img.shields.io/docker/pulls/cytopia/yamllint.svg
-[ylint-hub-lnk]: https://hub.docker.com/r/cytopia/yamllint
 
 [ansible-git-lnk]: https://github.com/cytopia/docker-ansible
 [ansible-hub-img]: https://img.shields.io/docker/pulls/cytopia/ansible.svg
@@ -153,6 +153,10 @@ linter below for reproducible local or remote CI tests:
 [pcs-hub-img]: https://img.shields.io/docker/pulls/cytopia/phpcs.svg
 [pcs-hub-lnk]: https://hub.docker.com/r/cytopia/phpcs
 
+[plint-git-lnk]: https://github.com/cytopia/docker-phplint
+[plint-hub-img]: https://img.shields.io/docker/pulls/cytopia/phplint.svg
+[plint-hub-lnk]: https://hub.docker.com/r/cytopia/phplint
+
 [pcsf-git-lnk]: https://github.com/cytopia/docker-php-cs-fixer
 [pcsf-hub-img]: https://img.shields.io/docker/pulls/cytopia/php-cs-fixer.svg
 [pcsf-hub-lnk]: https://hub.docker.com/r/cytopia/php-cs-fixer
@@ -180,6 +184,14 @@ linter below for reproducible local or remote CI tests:
 [tgfmt-git-lnk]: https://github.com/cytopia/docker-terragrunt-fmt
 [tgfmt-hub-img]: https://img.shields.io/docker/pulls/cytopia/terragrunt-fmt.svg
 [tgfmt-hub-lnk]: https://hub.docker.com/r/cytopia/terragrunt-fmt
+
+[yfmt-git-lnk]: https://github.com/cytopia/docker-yamlfmt
+[yfmt-hub-img]: https://img.shields.io/docker/pulls/cytopia/yamlfmt.svg
+[yfmt-hub-lnk]: https://hub.docker.com/r/cytopia/yamlfmt
+
+[ylint-git-lnk]: https://github.com/cytopia/docker-yamllint
+[ylint-hub-img]: https://img.shields.io/docker/pulls/cytopia/yamllint.svg
+[ylint-hub-lnk]: https://hub.docker.com/r/cytopia/yamllint
 
 
 ### Makefiles
