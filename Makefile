@@ -59,14 +59,24 @@ _test-version:
 
 _test-run:
 	@echo "------------------------------------------------------------"
-	@echo "- Testing python black"
+	@echo "- Testing python black (Failure)"
 	@echo "------------------------------------------------------------"
-	@if ! docker run --rm -v $(CURRENT_DIR)/tests:/data $(IMAGE) --diff in.py ; then \
-		echo "$$?: ailed"; \
+	@if docker run --rm -v $(CURRENT_DIR)/tests:/data $(IMAGE) --check --diff failure.py ; then \
 		echo "Failed"; \
 		exit 1; \
-	fi; \
-	echo "Success";
+	else \
+		echo "OK"; \
+	fi;
+	@echo "------------------------------------------------------------"
+	@echo "- Testing python black (Success)"
+	@echo "------------------------------------------------------------"
+	@if ! docker run --rm -v $(CURRENT_DIR)/tests:/data $(IMAGE) --check --diff success.py ; then \
+		echo "Failed"; \
+		exit 1; \
+	else \
+		echo "OK"; \
+	fi;
+	@echo "Success";
 
 tag:
 	docker tag $(IMAGE) $(IMAGE):$(TAG)

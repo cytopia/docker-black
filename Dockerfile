@@ -3,7 +3,10 @@ FROM alpine:3.9 as builder
 RUN set -eux \
 	&& apk add --no-cache \
 		bc \
-		python3
+		gcc \
+		musl-dev \
+		python3 \
+		python3-dev
 
 ARG VERSION=latest
 RUN set -eux \
