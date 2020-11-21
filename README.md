@@ -63,6 +63,8 @@ the root of your project.
 
 ## Usage
 
+### Command line
+
 ```bash
 # Linux, Mac, Windows (Powershell)
 docker run --rm -v $(pwd):/data cytopia/black main.py
@@ -71,6 +73,20 @@ docker run --rm -v $(pwd):/data cytopia/black main.py
 docker run --rm -v %cd%:/data cytopia/black main.py
 ```
 
+### GitLab CI
+
+```yaml
+stages:
+ - format
+
+format-black:
+  stage: format
+  image:
+    name: cytopia/black
+    entrypoint: ["/bin/bash", "-c"]
+  script:
+    - python3 -m black --check --diff my_source_files/
+```
 
 ## Related [#awesome-ci](https://github.com/topics/awesome-ci) projects
 
