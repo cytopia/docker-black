@@ -83,7 +83,7 @@ format-black:
   stage: format
   image:
     name: cytopia/black
-    entrypoint: ["/bin/bash", "-c"]
+    entrypoint: ["/bin/ash", "-c"]
   script:
     - python3 -m black --check --diff my_source_files/
 ```
