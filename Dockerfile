@@ -17,7 +17,7 @@ RUN set -eux \
 		pip3 install --no-cache-dir --no-compile "black[jupyter]>=${VERSION},<$(echo "${VERSION}+0.1" | bc)"; \
 	fi \
 	\
-	&& black --version | grep -E '^black,\s[0-9][0-9].[0-9].[0-9]+' \
+	&& black --version | grep -E 'black.+?version\s[0-9]+|^black,\s[0-9][0-9].[0-9].[0-9]+' \
 	\
 	&& find /usr/lib/ -name '__pycache__' -print0 | xargs -0 -n1 rm -rf \
 	&& find /usr/lib/ -name '*.pyc' -print0 | xargs -0 -n1 rm -rf
