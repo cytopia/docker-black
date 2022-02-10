@@ -78,7 +78,7 @@ _test-version:
 				| sed 's/.*\///g' \
 		)"; \
 		echo "Testing for latest: $${LATEST}"; \
-		if ! docker run --rm $(IMAGE) --version | grep -E "(version)?\s*$${LATEST}$$"; then \
+		if ! docker run --rm $(IMAGE) --version | grep -E "(version)?\s*$${LATEST}"; then \
 			echo "Failed"; \
 			exit 1; \
 		fi; \
