@@ -108,6 +108,8 @@ The following Docker image tags are built once and can be used for reproducible 
 The working directory inside the Docker container is **`/data/`** and should be mounted locally.
 
 
+## :computer: Usage
+
 ### Command line
 
 ```bash
