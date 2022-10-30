@@ -161,6 +161,9 @@ _test-black-version:
 				| sed 's/.*v//g' \
 				| sed 's/.*\///g' \
 		)"; \
+		if [ "$(PYTHON_VERSION)" = "3.6" ]; then \
+			LATEST="22.8.0"; \
+		fi; \
 		echo "Testing for latest: $${LATEST}"; \
 		if ! docker run --rm --platform $(ARCH) $(IMAGE):$(DOCKER_TAG) --version | grep -E "^black.+?(version\s)?$${LATEST}"; then \
 			docker run --rm --platform $(ARCH) $(IMAGE):$(DOCKER_TAG) --version; \
