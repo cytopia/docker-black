@@ -1,15 +1,13 @@
 # Docker image for `black`
 
 [![Tag](https://img.shields.io/github/tag/cytopia/docker-black.svg)](https://github.com/cytopia/docker-black/releases)
-[![](https://images.microbadger.com/badges/version/cytopia/black:latest.svg?&kill_cache=1)](https://microbadger.com/images/cytopia/black:latest "black")
-[![](https://images.microbadger.com/badges/image/cytopia/black:latest.svg?&kill_cache=1)](https://microbadger.com/images/cytopia/black:latest "black")
-[![](https://img.shields.io/docker/pulls/cytopia/black.svg)](https://hub.docker.com/r/cytopia/black)
 [![](https://img.shields.io/badge/github-cytopia%2Fdocker--black-red.svg)](https://github.com/cytopia/docker-black "github.com/cytopia/docker-black")
 [![License](https://img.shields.io/badge/license-MIT-%233DA639.svg)](https://opensource.org/licenses/MIT)
 
 [![lint](https://github.com/cytopia/docker-black/workflows/lint/badge.svg)](https://github.com/cytopia/docker-black/actions?query=workflow%3Alint)
 [![build](https://github.com/cytopia/docker-black/workflows/build/badge.svg)](https://github.com/cytopia/docker-black/actions?query=workflow%3Abuild)
 [![nightly](https://github.com/cytopia/docker-black/workflows/nightly/badge.svg)](https://github.com/cytopia/docker-black/actions?query=workflow%3Anightly)
+
 
 > #### All [#awesome-ci](https://github.com/topics/awesome-ci) Docker images
 >
@@ -25,6 +23,7 @@
 > [goimports][gimp-git-lnk] **•**
 > [golint][glint-git-lnk] **•**
 > [jsonlint][jlint-git-lnk] **•**
+> [kubeval][kubeval-git-lnk] **•**
 > [linkcheck][linkcheck-git-lnk] **•**
 > [mypy][mypy-git-lnk] **•**
 > [php-cs-fixer][pcsf-git-lnk] **•**
@@ -40,34 +39,76 @@
 > [yamlfmt][yfmt-git-lnk] **•**
 > [yamllint][ylint-git-lnk]
 
-> #### All [#awesome-ci](https://github.com/topics/awesome-ci) Makefiles
->
-> Visit **[cytopia/makefiles](https://github.com/cytopia/makefiles)** for seamless project integration, minimum required best-practice code linting and CI.
+View **[Dockerfiles](https://github.com/cytopia/docker-black/blob/master/Dockerfiles/)** on GitHub.
 
-View **[Dockerfile](https://github.com/cytopia/docker-black/blob/master/Dockerfile)** on GitHub.
 
-[![Docker hub](http://dockeri.co/image/cytopia/black?&kill_cache=1)](https://hub.docker.com/r/cytopia/black)
+**Available Architectures:**  `amd64`, `i386`, `arm64`, `arm/v7`, `arm/v6`
 
 Tiny Alpine-based multistage-build dockerized version of [Black](https://github.com/python/black)<sup>[1]</sup>.
 The image is built nightly against multiple stable versions and pushed to Dockerhub.
 
 <sup>[1] Official project: https://github.com/python/black</sup>
 
+## :whale: Available Docker image versions
 
-## Available Docker image versions
+[![](https://img.shields.io/docker/pulls/cytopia/black.svg)](https://hub.docker.com/r/cytopia/black)
+[![Docker](https://badgen.net/badge/icon/:latest?icon=docker&label=cytopia/black)](https://hub.docker.com/r/cytopia/black)
 
-| Docker tag | Build from |
-|------------|------------|
-| `latest`   | Latest stable Black version |
+#### Rolling releaess
 
+The following Docker image tags are rolling releases and are built and updated every night.
 
-## Docker mounts
-
-The working directory inside the Docker container is **`/data/`** and should be mounted locally to
-the root of your project.
+[![nightly](https://github.com/cytopia/docker-black/workflows/nightly/badge.svg)](https://github.com/cytopia/docker-black/actions?query=workflow%3Anightly)
 
 
-## Usage
+| Docker Tag            | Git Ref      | Black        | Python      | Available Architectures                      |
+|-----------------------|--------------|--------------|-------------|----------------------------------------------|
+| **`latest`**          | master       | latest       | latest      | `amd64`, `i386`, `arm64`, `arm/v7`, `arm/v6` |
+| `latest-py3.10`       | master       | latest       | **`3.10`**  | `amd64`, `i386`, `arm64`, `arm/v7`, `arm/v6` |
+| `latest-py3.9`        | master       | latest       | **`3.9`**   | `amd64`, `i386`, `arm64`, `arm/v7`, `arm/v6` |
+| `latest-py3.8`        | master       | latest       | **`3.8`**   | `amd64`, `i386`, `arm64`, `arm/v7`, `arm/v6` |
+| `latest-py3.7`        | master       | latest       | **`3.7`**   | `amd64`, `i386`, `arm64`, `arm/v7`, `arm/v6` |
+| `latest-py3.6`        | master       | latest       | **`3.6`**   | `amd64`, `i386`, `arm64`, `arm/v7`, `arm/v6` |
+|                       |              |              |             |                                              |
+| **`22`**              | master       | **`22.x.x`** | latest      | `amd64`, `i386`, `arm64`, `arm/v7`, `arm/v6` |
+| `22-py3.10`           | master       | **`22.x.x`** | **`3.10`**  | `amd64`, `i386`, `arm64`, `arm/v7`, `arm/v6` |
+| `22-py3.9`            | master       | **`22.x.x`** | **`3.9`**   | `amd64`, `i386`, `arm64`, `arm/v7`, `arm/v6` |
+| `22-py3.8`            | master       | **`22.x.x`** | **`3.8`**   | `amd64`, `i386`, `arm64`, `arm/v7`, `arm/v6` |
+| `22-py3.7`            | master       | **`22.x.x`** | **`3.7`**   | `amd64`, `i386`, `arm64`, `arm/v7`, `arm/v6` |
+| `22-py3.6`            | master       | **`22.x.x`** | **`3.6`**   | `amd64`, `i386`, `arm64`, `arm/v7`, `arm/v6` |
+
+
+#### Point in time releases
+
+The following Docker image tags are built once and can be used for reproducible builds. Its version never changes so you will have to update tags in your pipelines from time to time in order to stay up-to-date.
+
+[![build](https://github.com/cytopia/docker-black/workflows/build/badge.svg)](https://github.com/cytopia/docker-black/actions?query=workflow%3Abuild)
+
+| Docker Tag            | Git Ref      | Black        | Python      | Available Architectures                      |
+|-----------------------|--------------|--------------|-------------|----------------------------------------------|
+| **`latest-<tag>`**    | git: `<tag>` | latest       | latest      | `amd64`, `i386`, `arm64`, `arm/v7`, `arm/v6` |
+| `latest-py3.10-<tag>` | git: `<tag>` | latest       | **`3.10`**  | `amd64`, `i386`, `arm64`, `arm/v7`, `arm/v6` |
+| `latest-py3.9-<tag>`  | git: `<tag>` | latest       | **`3.9`**   | `amd64`, `i386`, `arm64`, `arm/v7`, `arm/v6` |
+| `latest-py3.8-<tag>`  | git: `<tag>` | latest       | **`3.8`**   | `amd64`, `i386`, `arm64`, `arm/v7`, `arm/v6` |
+| `latest-py3.7-<tag>`  | git: `<tag>` | latest       | **`3.7`**   | `amd64`, `i386`, `arm64`, `arm/v7`, `arm/v6` |
+| `latest-py3.6-<tag>`  | git: `<tag>` | latest       | **`3.6`**   | `amd64`, `i386`, `arm64`, `arm/v7`, `arm/v6` |
+|                       |              |              |             |                                              |
+| **`22-<tag>`**        | git: `<tag>` | **`22.x.x`** | latest      | `amd64`, `i386`, `arm64`, `arm/v7`, `arm/v6` |
+| `22-py3.10-<tag>`     | git: `<tag>` | **`22.x.x`** | **`3.10`**  | `amd64`, `i386`, `arm64`, `arm/v7`, `arm/v6` |
+| `22-py3.9-<tag>`      | git: `<tag>` | **`22.x.x`** | **`3.9`**   | `amd64`, `i386`, `arm64`, `arm/v7`, `arm/v6` |
+| `22-py3.8-<tag>`      | git: `<tag>` | **`22.x.x`** | **`3.8`**   | `amd64`, `i386`, `arm64`, `arm/v7`, `arm/v6` |
+| `22-py3.7-<tag>`      | git: `<tag>` | **`22.x.x`** | **`3.7`**   | `amd64`, `i386`, `arm64`, `arm/v7`, `arm/v6` |
+| `22-py3.6-<tag>`      | git: `<tag>` | **`22.x.x`** | **`3.6`**   | `amd64`, `i386`, `arm64`, `arm/v7`, `arm/v6` |
+
+> Where `<tag>` refers to the chosen git tag from this repository.
+
+
+## :open_file_folder: Docker mounts
+
+The working directory inside the Docker container is **`/data/`** and should be mounted locally.
+
+
+## :computer: Usage
 
 ### Command line
 
@@ -94,7 +135,8 @@ format-black:
     - python3 -m black --check --diff my_source_files/
 ```
 
-## Related [#awesome-ci](https://github.com/topics/awesome-ci) projects
+
+## :arrows_counterclockwise: Related [#awesome-ci](https://github.com/topics/awesome-ci) projects
 
 ### Docker images
 
@@ -113,6 +155,7 @@ linter below for reproducible local or remote CI tests:
 | [golint][glint-git-lnk]          | [![glint-hub-img]][glint-hub-lnk]     | Go         | Lint Go code |
 | [eslint][elint-git-lnk]          | [![elint-hub-img]][elint-hub-lnk]     | Javascript | Lint Javascript code |
 | [jsonlint][jlint-git-lnk]        | [![jlint-hub-img]][jlint-hub-lnk]     | JSON       | Lint JSON files **<sup>[1]</sup>** |
+| [kubeval][kubeval-git-lnk]       | [![kubeval-hub-img]][kubeval-hub-lnk] | K8s        | Lint Kubernetes files |
 | [checkmake][cm-git-lnk]          | [![cm-hub-img]][cm-hub-lnk]           | Make       | Lint Makefiles |
 | [phpcbf][pcbf-git-lnk]           | [![pcbf-hub-img]][pcbf-hub-lnk]       | PHP        | PHP Code Beautifier and Fixer |
 | [phpcs][pcs-git-lnk]             | [![pcs-hub-img]][pcs-hub-lnk]         | PHP        | PHP Code Sniffer |
@@ -155,6 +198,10 @@ linter below for reproducible local or remote CI tests:
 [alint-git-lnk]: https://github.com/cytopia/docker-ansible-lint
 [alint-hub-img]: https://img.shields.io/docker/pulls/cytopia/ansible-lint.svg
 [alint-hub-lnk]: https://hub.docker.com/r/cytopia/ansible-lint
+
+[kubeval-git-lnk]: https://github.com/cytopia/docker-kubeval
+[kubeval-hub-img]: https://img.shields.io/docker/pulls/cytopia/kubeval.svg
+[kubeval-hub-lnk]: https://hub.docker.com/r/cytopia/kubeval
 
 [gfmt-git-lnk]: https://github.com/cytopia/docker-gofmt
 [gfmt-hub-img]: https://img.shields.io/docker/pulls/cytopia/gofmt.svg
@@ -243,7 +290,8 @@ Visit **[cytopia/makefiles](https://github.com/cytopia/makefiles)** for dependen
 The provided Makefiles will only require GNU Make and Docker itself removing the need to install anything else.
 
 
-## License
+## :page_facing_up: License
+
 
 **[MIT License](LICENSE)**
 

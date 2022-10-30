@@ -1,4 +1,4 @@
-FROM alpine:3.13 as builder
+FROM alpine:3.15 as builder
 
 RUN set -eux \
 	&& apk add --no-cache \
@@ -9,22 +9,27 @@ RUN set -eux \
 		python3 \
 		python3-dev
 
-ARG VERSION
+ARG BLACK_VERSION
 RUN set -eux \
-	&& if [ "${VERSION}" = "latest" ]; then \
+	&& if [ "${BLACK_VERSION}" = "latest" ]; then \
 		pip3 install --no-cache-dir --no-compile black; \
+	elif [ "${BLACK_VERSION}" -lt "22" ]; then \
+		pip3 install --no-cache-dir --no-compile "black~=${BLACK_VERSION}.0b"; \
 	else \
-		pip3 install --no-cache-dir --no-compile "black>=${VERSION},<$(echo "${VERSION}+0.1" | bc)"; \
-	fi \
-	\
-	&& black --version | grep -E '^black.+?version\s[0-9]+' \
+		pip3 install --no-cache-dir --no-compile "black~=${BLACK_VERSION}.0"; \
+	fi
+
+RUN set -eux \
+	&& python3 --version \
+	&& black --version \
+	&& black --version | grep -E '^black.+?(version\s)?[0-9]+\.[\.0-9]+' \
 	\
 	&& find /usr/lib/ -name '__pycache__' -print0 | xargs -0 -n1 rm -rf \
 	&& find /usr/lib/ -name '*.pyc' -print0 | xargs -0 -n1 rm -rf
 
 
-FROM alpine:3.13 as production
-ARG VERSION
+FROM alpine:3.15 as production
+ARG BLACK_VERSION
 # https://github.com/opencontainers/image-spec/blob/master/annotations.md
 #LABEL "org.opencontainers.image.created"=""
 #LABEL "org.opencontainers.image.version"=""
@@ -36,17 +41,18 @@ LABEL "org.opencontainers.image.licenses"="MIT"
 LABEL "org.opencontainers.image.url"="https://github.com/cytopia/docker-black"
 LABEL "org.opencontainers.image.documentation"="https://github.com/cytopia/docker-black"
 LABEL "org.opencontainers.image.source"="https://github.com/cytopia/docker-black"
-LABEL "org.opencontainers.image.ref.name"="black ${VERSION}"
-LABEL "org.opencontainers.image.title"="black ${VERSION}"
-LABEL "org.opencontainers.image.description"="black ${VERSION}"
+LABEL "org.opencontainers.image.ref.name"="black ${BLACK_VERSION}"
+LABEL "org.opencontainers.image.title"="black ${BLACK_VERSION}"
+LABEL "org.opencontainers.image.description"="black ${BLACK_VERSION}"
 
 RUN set -eux \
-	&& apk add --no-cache python3 \
+	&& apk add --no-cache \
+		python3 \
 	&& ln -sf /usr/bin/python3 /usr/bin/python \
 	&& find /usr/lib/ -name '__pycache__' -print0 | xargs -0 -n1 rm -rf \
 	&& find /usr/lib/ -name '*.pyc' -print0 | xargs -0 -n1 rm -rf
 
-COPY --from=builder /usr/lib/python3.8/site-packages/ /usr/lib/python3.8/site-packages/
+COPY --from=builder /usr/lib/python3.9/site-packages/ /usr/lib/python3.9/site-packages/
 COPY --from=builder /usr/bin/black /usr/bin/black
 WORKDIR /data
 ENTRYPOINT ["black"]
