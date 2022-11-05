@@ -12,11 +12,11 @@ RUN set -eux \
 ARG BLACK_VERSION
 RUN set -eux \
 	&& if [ "${BLACK_VERSION}" = "latest" ]; then \
-		pip3 install --no-cache-dir --no-compile black; \
+		pip3 install --no-cache-dir --no-compile black[jupyter]; \
 	elif [ "${BLACK_VERSION}" -lt "22" ]; then \
-		pip3 install --no-cache-dir --no-compile "black~=${BLACK_VERSION}.0b"; \
+		pip3 install --no-cache-dir --no-compile "black[jupyter]~=${BLACK_VERSION}.0b"; \
 	else \
-		pip3 install --no-cache-dir --no-compile "black~=${BLACK_VERSION}.0"; \
+		pip3 install --no-cache-dir --no-compile "black[jupyter]~=${BLACK_VERSION}.0"; \
 	fi
 
 RUN set -eux \
