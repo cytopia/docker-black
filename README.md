@@ -49,6 +49,27 @@ The image is built nightly against multiple stable versions and pushed to Docker
 
 <sup>[1] Official project: https://github.com/python/black</sup>
 
+## :octocat: GitHub Action
+
+To add this to GitHub Actions, add the following snippet into your `.github/workflows/` directory:
+
+`.github/workflows/lint.yml`
+```yml
+on: [push, pull_request]
+
+jobs:
+  python-black:
+    name: Python Black
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Python Black
+        uses: cytopia/docker-black@0.8
+        with:
+          path: 'src/'
+```
+
+
 ## :whale: Available Docker image versions
 
 [![](https://img.shields.io/docker/pulls/cytopia/black.svg)](https://hub.docker.com/r/cytopia/black)
