@@ -2,6 +2,8 @@
 
 [![Tag](https://img.shields.io/github/tag/cytopia/docker-black.svg)](https://github.com/cytopia/docker-black/releases)
 [![](https://img.shields.io/badge/github-cytopia%2Fdocker--black-red.svg)](https://github.com/cytopia/docker-black "github.com/cytopia/docker-black")
+[![](https://img.shields.io/docker/pulls/cytopia/black.svg)](https://hub.docker.com/r/cytopia/black)
+[![Docker](https://badgen.net/badge/icon/:latest?icon=docker&label=cytopia/black)](https://hub.docker.com/r/cytopia/black)
 [![License](https://img.shields.io/badge/license-MIT-%233DA639.svg)](https://opensource.org/licenses/MIT)
 
 [![lint](https://github.com/cytopia/docker-black/workflows/lint/badge.svg)](https://github.com/cytopia/docker-black/actions?query=workflow%3Alint)
@@ -42,7 +44,7 @@
 View **[Dockerfiles](https://github.com/cytopia/docker-black/blob/master/Dockerfiles/)** on GitHub.
 
 
-**Available Architectures:**  `amd64`, `i386`, `arm64`, `arm/v7`, `arm/v6`
+**Available Architectures:**  `amd64`, `i386`, `arm64`, `arm/v7`, `arm/v6`, `ppc64le`, `s390x`
 
 Tiny Alpine-based multistage-build dockerized version of [Black](https://github.com/python/black)<sup>[1]</sup>.
 The image is built nightly against multiple stable versions and pushed to Dockerhub.
