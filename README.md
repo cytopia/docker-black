@@ -2,6 +2,8 @@
 
 [![Tag](https://img.shields.io/github/tag/cytopia/docker-black.svg)](https://github.com/cytopia/docker-black/releases)
 [![](https://img.shields.io/badge/github-cytopia%2Fdocker--black-red.svg)](https://github.com/cytopia/docker-black "github.com/cytopia/docker-black")
+[![](https://img.shields.io/docker/pulls/cytopia/black.svg)](https://hub.docker.com/r/cytopia/black)
+[![Docker](https://badgen.net/badge/icon/:latest?icon=docker&label=cytopia/black)](https://hub.docker.com/r/cytopia/black)
 [![License](https://img.shields.io/badge/license-MIT-%233DA639.svg)](https://opensource.org/licenses/MIT)
 
 [![lint](https://github.com/cytopia/docker-black/workflows/lint/badge.svg)](https://github.com/cytopia/docker-black/actions?query=workflow%3Alint)
@@ -42,7 +44,7 @@
 View **[Dockerfiles](https://github.com/cytopia/docker-black/blob/master/Dockerfiles/)** on GitHub.
 
 
-**Available Architectures:**  `amd64`, `i386`, `arm64`, `arm/v7`, `arm/v6`
+**Available Architectures:**  `amd64`, `i386`, `arm64`, `arm/v7`, `arm/v6`, `ppc64le`, `s390x`
 
 Tiny Alpine-based multistage-build dockerized version of [Black](https://github.com/python/black)<sup>[1]</sup>.
 The image is built nightly against multiple stable versions and pushed to Dockerhub.
@@ -50,6 +52,8 @@ The image is built nightly against multiple stable versions and pushed to Docker
 <sup>[1] Official project: https://github.com/python/black</sup>
 
 ## :octocat: GitHub Action
+
+**Runs on:** <img style="width:32px;height:32px;" width="32" height="32" title="Ubuntu Runner" src="https://github.com/cytopia/icons/raw/master/64x64/ubuntu.png"/> <img style="width:32px;height:32px;" width="32" height="32" title="MacOS Runner" src="https://raw.githubusercontent.com/cytopia/icons/master/64x64/osx.png" />
 
 To add this to GitHub Actions, add the following snippet into your `.github/workflows/` directory:
 
