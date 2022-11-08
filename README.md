@@ -53,6 +53,8 @@ The image is built nightly against multiple stable versions and pushed to Docker
 
 ## :octocat: GitHub Action
 
+**Runs on:** <img style="width:32px;height:32px;" width="32" height="32" title="Ubuntu Runner" src="https://github.com/cytopia/icons/raw/master/64x64/ubuntu.png"/> <img style="width:32px;height:32px;" width="32" height="32" title="MacOS Runner" src="https://raw.githubusercontent.com/cytopia/icons/master/64x64/osx.png" />
+
 To add this to GitHub Actions, add the following snippet into your `.github/workflows/` directory:
 
 `.github/workflows/lint.yml`
