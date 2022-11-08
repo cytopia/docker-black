@@ -1,0 +1,38 @@
+---
+# -------------------------------------------------------------------------------------------------
+# Job Name
+# -------------------------------------------------------------------------------------------------
+name: GitHub Docker Action
+
+
+# -------------------------------------------------------------------------------------------------
+# When to run
+# -------------------------------------------------------------------------------------------------
+on:
+  push:
+
+jobs:
+  github_docker_action:
+    name: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: test file (success)
+        uses: ./
+        with:
+          path: 'tests/success.py'
+
+      - name: test file (failure)
+        uses: ./
+        with:
+          path: 'tests/failure.py'
+        continue-on-error: true
+
+
+      - name: test directory (failure)
+        uses: ./
+        with:
+          path: 'tests/'
+        continue-on-error: true
