@@ -1,0 +1,20 @@
+# https://help.github.com/en/articles/metadata-syntax-for-github-actions
+
+name: 'Python Black'
+description: 'Runs Python Black'
+author: 'cytopia'
+branding:
+  icon: 'code'
+  color: 'black'
+
+inputs:
+  path:
+    description: 'Path to check (defaults to current directory)'
+    required: false
+    default: './'
+runs:
+  using: 'docker'
+  image: 'docker://cytopia/black'
+  args:
+    - '--check'
+    - ${{ inputs.path }}
