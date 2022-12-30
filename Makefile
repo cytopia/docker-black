@@ -156,7 +156,8 @@ _test-black-version:
 		LATEST="$$( \
 			curl -L -sS  https://github.com/python/black/releases/ \
 				| tac | tac \
-				| grep -Eo "/black/releases/tag/v?[.0-9a-z]+" \
+				| grep -Eo '/black/releases/tag/v?[.0-9]+"' \
+				| grep -Eo 'v?[.0-9]+' \
 				| head -1 \
 				| sed 's/.*v//g' \
 				| sed 's/.*\///g' \
