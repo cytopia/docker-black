@@ -68,7 +68,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Python Black
-        uses: cytopia/docker-black@0.8
+        uses: cytopia/docker-black@0.11
         with:
           path: 'src/'
 ```
